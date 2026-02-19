@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Tip Calculator</h1>
+        <div id="calculation-result">
+            <!-- Left Section -->
+            <div class="calculator-body">
+                <div class="input">
+                    <label for="bill">Bill  Amount:</label>
+                    <input type="number" id="billInput" placeholder="₦ 0.00" min="0" step="0.01">
+                </div>
+                <div class="input">
+                    <label for="tip">Select Tip</label>
+                    <div class="tip-buttons">
+                        <button class="tip-btn" value="5">5%</button>
+                        <button class="tip-btn" value="10">10%</button>
+                        <button class="tip-btn" value="15">15%</button>
+                        <button class="tip-btn" value="20">20%</button>
+                        <button class="tip-btn" value="25">25%</button>
+                        <input type="number" id="custom-tip" placeholder="Custom" min="0">
+                    </div>
+                </div>
+                <div class="input">
+                    <label for="people">Number of People</label>
+                    <input type="number" id="people" placeholder="1" min="1">
+                </div>
+                <button id="calculate-btn" class="reset-btn">Calculate Tip</button>
+            </div>
+
+            <!-- Right Section -->
+            <div class="output-section">
+                <div class="output-result">
+                    <div>
+                        <p class="result-label">Tip Amount</p>
+                        <span class="per-person">/ person</span>
+                    </div>
+                    <h2 id="tip-amount">₦ 0.00</h2>
+                </div>
+
+                <div class="output-result">
+                    <div>
+                        <p class="result-label">Total Amount</p>
+                    </div>
+                    <h2 id="total-amount">₦ 0.00</h2>
+                </div>
+
+                <div class="output-result">
+                    <div>
+                        <p class="result-label">Total Amount per person</p>
+                        <span class="per-person">/ person</span>
+                    </div>
+                    <h2 id="total-amountPerPerson">₦ 0.00</h2>
+                </div>
+                <button id="reset-btn" class="reset-btn">Reset</button>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
