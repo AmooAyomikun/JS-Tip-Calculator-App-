@@ -7,6 +7,9 @@ const totalAmountEl = document.getElementById('total-amount')
 const totalAmountPerPerson = document.getElementById('total-amountPerPerson')
 const calculateBtn = document.getElementById('calculate-btn')
 const resetBtn = document.getElementById('reset-btn')
+const billError = document.getElementById('bill-error')
+const tipError = document.getElementById('tip-error')
+const peopleError = document.getElementById('people-error')
 
 function calculateTip(){
     let billValue = Number(billInputEl.value);
@@ -14,24 +17,34 @@ function calculateTip(){
     let tipPercent;
     let peopleValue = Number(peoplesNumber.value);
 
+    billError.textContent = "";
+    tipError.textContent = "";
+    peopleError.textContent ="";
+    
+
     if(activeBtn){
         tipPercent = Number(activeBtn.value)
     }else{
         tipPercent = Number(customTip.value)
     }
 
+    let hasError = false
     if(!billValue || billValue <= 0){
-        alert('Enter a valid bill number');
-        return;
+        billError.textContent = "Enter a valid bill amount"
+        hasError = true;
     }
 
     if(!tipPercent || tipPercent<= 0){
-        alert('Click or Enter the tip percentage you want');
-        return;
+        tipError.textContent = "Select or enter a tip percentage"
+        hasError = true;
     }
 
     if(!peopleValue || peopleValue <= 0){
-        alert('Enter the number of people to calculate for')
+        peopleError.textContent = "Enter number of people"
+        hasError = true
+    }
+
+    if(hasError){
         return;
     }
 
@@ -71,9 +84,9 @@ function resetTip(){
         btn.classList.remove('active')
     })
 
-    tipAmountEl.textContent = "₦ 0 00";
-    totalAmountEl.textContent = "₦ 0 00";
-    totalAmountPerPerson.textContent = "₦ 0 00";
+    tipAmountEl.textContent = "₦ 0.00";
+    totalAmountEl.textContent = "₦ 0.00";
+    totalAmountPerPerson.textContent = "₦ 0.00";
 }
 
 resetBtn.addEventListener('click', resetTip)

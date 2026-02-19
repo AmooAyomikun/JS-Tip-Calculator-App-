@@ -150,6 +150,17 @@ input[type="number"]:focus {
   transform: translateY(-2px);
 }
 
+.error-message{
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  height: 14px;
+}
+
+.input-error{
+  border: 2px solid red;
+}
+
 @media (max-width: 700px) {
   .container {
     padding: 20px;
